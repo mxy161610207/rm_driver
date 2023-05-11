@@ -49,7 +49,7 @@ python driver_wrapper.py
 
 - 使用大疆官方SDK连接一辆EP小车
 - 以20Hz的频率订阅传感器数据，并写入同步字典 `senser_syncer`
-- 依次从执行指令`actuator_syncer`队列取出指令，并调用执行API
+- 依次从执行指令队列`actuator_syncer`取出指令，并调用执行API
 
 #### 传感器数据
 
