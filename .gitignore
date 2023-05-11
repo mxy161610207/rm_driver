@@ -1,1 +1,5 @@
+# python的字节码，不上传
 **/__pycache__
+
+# private 私人目录，不上传
+/private
