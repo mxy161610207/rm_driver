@@ -1,10 +1,10 @@
 import time
 import os
+import queue
 
 import gui_controller
 import ep_handler
-import queue
-
+import server_connecter
 
 from multiprocessing import Value, Process, Queue, Manager
 
@@ -13,23 +13,6 @@ from multiprocessing import Value, Process, Queue, Manager
 # 1 都是正常工作
 # 2 都是等待关闭
 # -1 都是报错
-
-
-def server_conn_raiser(proc_name, platform_resources, platform_socket_address):
-    print("Proc [{}] start".format(proc_name))
-
-    client_status = platform_resources['client_status']
-
-    client_status.value = 1
-
-    while True:
-        # print("wake up do something...")
-        if (client_status.value == 2):
-            break
-        time.sleep(2)
-
-    print("Proc [{}] end".format(proc_name))
-
 
 if __name__ == '__main__':
     # 系统多进程资源
@@ -79,7 +62,7 @@ if __name__ == '__main__':
     process_name = 'server_conn_raiser'
     proc_conn = Process(
         name=process_name,
-        target=server_conn_raiser,
+        target=server_connecter.server_conn_raiser,
         args=(process_name,
               platform_resources,
               platform_socket_address)

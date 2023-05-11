@@ -1,0 +1,5 @@
+{
+    "name":"RoboMasterEP",
+    "type":"Sensor",
+    "fields":["GroupSensor"]
+}
